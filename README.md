@@ -8,7 +8,7 @@ This script allows you to inject hidden prompts into Microsoft 365 documents (Wo
 - `zipfile` and `os` modules (standard library)
 
 ## Usage
-```bash
+```
 python inject_hidden_prompt.py <doc_type> <location> <payload> [--file]
 ```
 
@@ -23,52 +23,52 @@ python inject_hidden_prompt.py <doc_type> <location> <payload> [--file]
 #### Word Document
 Injecting a hidden prompt into the `_rels` section of a Word document:
 
-```bash
+```
 python inject_hidden_prompt.py word rels "hidden_prompt_text"
 ```
 
 Injecting a hidden prompt from a file into the `document` section of a Word document:
 
-```bash
+```
 python inject_hidden_prompt.py word document path/to/payload.txt --file
 ```
 
 #### Excel Document
 Injecting a hidden prompt into the `workbook` section of an Excel document:
 
-```bash
+```
 python inject_hidden_prompt.py excel workbook "hidden_prompt_text"
 ```
 
 Injecting a hidden prompt from a file into the `styles` section of an Excel document:
 
-```bash
+```
 python inject_hidden_prompt.py excel styles path/to/payload.txt --file
 ```
 
 #### PowerPoint Document
 Injecting a hidden prompt into the `presentation` section of a PowerPoint document:
 
-```bash
+```
 python inject_hidden_prompt.py powerpoint presentation "hidden_prompt_text"
 ```
 
 Injecting a hidden prompt from a file into the `slide1` section of a PowerPoint document:
 
-```bash
+```
 python inject_hidden_prompt.py powerpoint slide1 path/to/payload.txt --file
 ```
 
 #### OneNote Document
 Injecting a hidden prompt into the `onetoc2` section of a OneNote document:
 
-```bash
+```
 python inject_hidden_prompt.py onenote onetoc2 "hidden_prompt_text"
 ```
 
 Injecting a hidden prompt from a file into the `section` section of a OneNote document:
 
-```bash
+```
 python inject_hidden_prompt.py onenote section path/to/payload.txt --file
 ```
 
@@ -112,3 +112,29 @@ python inject_hidden_prompt.py onenote section path/to/payload.txt --file
 #### OneNote (.one)
 - `onetoc2`: `openNotebookStructure.onetoc2`
 - `section`: `sectionFolder`
+
+# How to Use the Script
+
+1. **Save the Script**: Save the downloaded script as `inject_hidden_prompt.py`.
+2. **Prepare the Payload**: Ensure you have the text or file you want to inject as the payload.
+3. **Run the Script**: Use the following command to run the script and inject text into the desired location of a document.
+
+   Example command to run the script:
+   
+   python inject_hidden_prompt.py word rels "hidden_prompt_text"
+   
+# How to Use the Command
+
+- **doc_type**: Specify the type of the document (`word`, `excel`, `powerpoint`, or `onenote`).
+- **location**: Specify the location within the document where you want to inject the payload (e.g., `rels`, `docProps`, `document`, etc.).
+- **payload**: Provide the text you want to inject.
+- **–file**: Use this flag if the payload is a file path.
+
+### Example
+Assuming your document is at `path/to/your/document.docx` and you want to inject the text `hidden_prompt_text` into the `_rels` section:
+
+python inject_hidden_prompt.py word rels "hidden_prompt_text"
+
+This will place `hidden_prompt_text` into the `_rels` section of the specified Word document.
+
+Update the `doc_path` variable in the script to the path of the document you want to modify before running the script. This should be the second from the last line in the script.
